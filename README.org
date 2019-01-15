@@ -1,0 +1,44 @@
+#+TITLE: Ansible roles for HMRC development
+#+AUTHOR: José Miguel Martínez Carrasco
+
+#+STARTUP: showall
+
+* Overview
+
+Automate HMRC development laptop setup.
+
+* Requirements
+
+- python 3
+- docker
+
+and debian based roles:
+
+- python-apt
+
+* Usage
+
+Create a virtual environment and install libraries.
+
+#+BEGIN_EXAMPLE
+python3 -m venv .venv
+source .venv/bin/activate
+pip install --upgrade pip
+pip install -r requirements.txt
+#+END_EXAMPLE
+
+Create a *scaladev* role to be tested by molecule:
+
+#+BEGIN_EXAMPLE
+molecule init role -r scaladev -d docker
+#+END_EXAMPLE
+
+As we testing against Ubuntu Linux:
+
+#+BEGIN_EXAMPLE
+cd scaladev
+sed -i 's/centos:7/ubuntu:bionic' molecule/default/molecule/yml
+molecule create
+molecule converge
+molecule test
+#+END_EXAMPLE
