@@ -1,8 +1,4 @@
 ---
-- name: Update APT cache
-  apt:
-    update_cache: true
-
 - name: OpenJDK 8 SDK installation
   apt:
     name: openjdk-8-jdk
