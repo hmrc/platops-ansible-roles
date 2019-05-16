@@ -18,3 +18,9 @@ def test_openjdk_8(host):
     jvm = host.package('openjdk-8-jdk')
 
     assert jvm.is_installed
+
+
+def test_sbt(host):
+    sbt = host.file('/usr/local/bin/sbt')
+
+    assert sbt.exists

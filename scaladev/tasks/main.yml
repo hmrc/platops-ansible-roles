@@ -3,3 +3,15 @@
   apt:
     name: openjdk-8-jdk
     state: present
+
+- name: Uncompress SBT
+  unarchive:
+    src: https://piccolo.link/sbt-1.2.8.tgz
+    dest: /usr/local
+    remote_src: true
+
+- name: Symlink SBT to PATH
+  file:
+    src: /usr/local/sbt/bin/sbt
+    dest: /usr/local/bin/sbt
+    state: link

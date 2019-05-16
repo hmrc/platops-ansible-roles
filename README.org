@@ -11,12 +11,23 @@ Automate HMRC development laptop setup.
 
 - python 3
 - docker
+- gnu make
 
 and debian based roles:
 
-- python-apt
+- python-apt for python 3.
 
 * Usage
+
+** The fast way
+
+#+BEGIN_EXAMPLE
+make help     // list available tasks
+make setup    // create virtual environment, run it only once
+make test     // test roles with molecule
+#+END_EXAMPLE
+
+** The long way
 
 Create a virtual environment and install libraries.
 
